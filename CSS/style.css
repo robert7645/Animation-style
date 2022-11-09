@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(17, 17, 66);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.container {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-color: rgb(19, 17, 17);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container::before {  
+    position: absolute;  
+    content: '';
+    display: inline-block;
+    width: 100px;
+    height: 360px;
+    background: linear-gradient(315deg, red, blue);
+    animation: animatsiya;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transition: all 500ms;
+    /* z-index: 1; */
+}
+
+.container:hover::before{
+    content: '';
+    display: inline-block;
+    width: 360px;
+    height: 360px;
+}
+
+
+@keyframes animatsiya {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.box {
+    width: 341px;
+    height: 341px;
+    background-color: rgb(17, 17, 66);
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .box::before {
+    content: '';
+    display: inline-block;
+    width: 280px;
+    height: 280px;
+    border:5px solid rgb(19, 17, 17);
+    border-radius: 50%;
+} */
+
+.box-img {
+    width: 290px;
+    height: 290px;
+    border:5px solid rgb(19, 17, 17);
+    border-radius: 50%;
+    overflow: hidden;
+}
+.box img {
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    transition: all .7s;
+    z-index: 5;
+}
+
+.box-img:hover img{
+    opacity: 0%;
+    cursor: pointer;
+}
+
+.box-img h1 {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+    transition: all 1s ease-in-out;
+    color: #dedede;
+    text-align: center;
+}
+
+.box-img:hover h1 {
+    visibility: visible;
+}
